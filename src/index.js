@@ -14,7 +14,9 @@ import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-let store = createStore(reducers, {}, composeEnhancers(applyMiddleware(reduxThunk)));
+let store = createStore(reducers, {
+    auth: { authenticated: localStorage.getItem('token')}
+}, composeEnhancers(applyMiddleware(reduxThunk)));
 
 ReactDOM.render(
     

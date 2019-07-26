@@ -4,14 +4,21 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
+
+
 class Signup extends React.Component {
 
+    constructor(props) {
+        super(props);
+        
+    }
 
-    onSubmit = (formData) => {
-        console.log(formData)
 
-        this.props.signup(formData, () => {
-            this.props.history('/feature')
+    onSubmit = (formProps) => {
+        console.log(formProps)
+
+        this.props.signup(formProps, () => {
+            this.props.history.push('/feature')
         })
     }
     
